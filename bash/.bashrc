@@ -125,18 +125,26 @@ parse_git_branch() {
      git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-# Specialize Terminal 
-# blue: folder, yellow: Git Branch, green: $ 
+# Specialize Terminal
+# blue: folder, yellow: Git Branch, green: $
 # export PS1="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[01;33m\]\$(parse_git_branch)\[\033[00m\] \$ "
 export PS1="\[\033[01;34m\]\w\[\033[01;33m\]\$(parse_git_branch)\[\033[00m\] \$ "
 
 # shortcuts
-alias dcup='docker-compose up -d'
-alias dcdown='docker-compose down'
+alias dcup='docker compose up -d'
+alias dcdown='docker compose down'
 alias myip='hostname -I | awk "{print \$1}"'
 alias open='xdg-open'
 alias dotconfig='nano ~/dotfiles/bash/.bashrc'
 alias reload='source ~/.bashrc'
+alias ping='grc ping'
+alias tail='grc tail'
+alias head='grc head'
+alias ip='grc ip'
+alias df='grc df'
+alias du='grc du'
+
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 eval "$(zoxide init bash)"
 
