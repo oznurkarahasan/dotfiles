@@ -117,7 +117,7 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-[ -r /home/oznur/.byobu/prompt ] && . /home/oznur/.byobu/prompt   #byobu-prompt#
+[ -r "$HOME/.byobu/prompt" ] && . "$HOME/.byobu/prompt"   #byobu-prompt#
 . "$HOME/.cargo/env"
 
 # show Git branch
@@ -169,3 +169,5 @@ extract () {
        echo "'$1' is not a valid file"
    fi
 }
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path bash)"
